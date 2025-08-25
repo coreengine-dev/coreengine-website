@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>CoreEngine — En construcción</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CoreEngine. Motor 2D Android-first con IDE propio. Sitio en construcción. Lanzamiento 03/06/2027.">
+  <meta property="og:title" content="CoreEngine — En construcción">
+  <meta property="og:description" content="Motor 2D Android-first con IDE propio. Lanzamiento 03/06/2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-image.png">
+  <meta property="og:url" content="https://coreengine.dev/">
+  <link rel="icon" href="/assets/favicon.png">
+  <style>
+    :root{
+      --bg:#0e1726; --panel:#131c2b; --text:#e6e9ef; --muted:#9aa4b2;
+      --brand:#ffd700; --accent:#1e88e5; --ok:#00ffaa; --danger:#ff5577;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      background: radial-gradient(1200px 800px at 20% 0%, #11203b 0%, var(--bg) 60%) fixed;
+      color:var(--text); line-height:1.6;
+      display:flex; align-items:center; justify-content:center; padding:24px;
+    }
+    .wrap{width:100%; max-width:980px}
+    header{display:flex; align-items:center; gap:16px; margin-bottom:24px}
+    header img{height:40px; width:auto}
+    header h1{margin:0; font-size:1.2rem; letter-spacing:.5px; color:var(--brand)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:16px; padding:28px; backdrop-filter: blur(6px);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+    .title{font-size:2rem; margin:0 0 8px}
+    .subtitle{margin:0 0 16px; color:var(--muted)}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; font-size:.85rem; border:1px solid rgba(255,255,255,.15); color:var(--ok); background:rgba(0,255,170,.08); margin-bottom:10px}
+    .countdown{display:flex; gap:10px; margin:18px 0 8px}
+    .unit{flex:1; text-align:center; background:var(--panel); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,.06)}
+    .num{font-size:1.6rem; font-weight:700}
+    .lab{font-size:.8rem; color:var(--muted)}
+    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .btn{appearance:none; border:none; padding:12px 16px; border-radius:10px; font-weight:600; cursor:pointer}
+    .btn.primary{background:var(--accent); color:white}
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.15)}
+    .panel{
+      background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:18px
+    }
+    .list{display:grid; gap:10px}
+    .list li{list-style:none; display:flex; align-items:center; gap:10px; color:var(--muted)}
+    .dot{width:8px; height:8px; border-radius:50%; background:var(--brand)}
+    footer{margin-top:18px; color:var(--muted); font-size:.9rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .logoMark{
+      width:100%; aspect-ratio:16/10; border-radius:12px; border:1px solid rgba(255,255,255,.06);
+      background:
+        radial-gradient(240px 240px at 70% 30%, rgba(255,215,0,.15), transparent 60%),
+        conic-gradient(from 0deg at 50% 50%, rgba(255,215,0,.35), transparent 120deg, rgba(30,136,229,.2), transparent 300deg),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.35));
+      display:grid; place-items:center;
+    }
+    .gear{font-size:4rem}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="/assets/coreengine-logo.png" alt="Logo CoreEngine">
+      <h1>CoreEngine</h1>
+      <span class="sr-only">Sitio oficial</span>
+    </header>
+
+    <section class="card hero" aria-labelledby="titulo">
+      <div>
+        <span class="badge">Sitio en construcción</span>
+        <h2 id="titulo" class="title">Motor 2D Android-first con IDE propio</h2>
+        <p class="subtitle">Alineado a la teoría 𝛂 → 𝜱 → 𝝮 → 𝐌 → 𝚿 → 𝝎. Lanzamiento el 03/06/2027.</p>
+
+        <div class="countdown" aria-live="polite" aria-label="Cuenta regresiva al lanzamiento">
+          <div class="unit"><div id="d" class="num">–</div><div class="lab">Días</div></div>
+          <div class="unit"><div id="h" class="num">–</div><div class="lab">Horas</div></div>
+          <div class="unit"><div id="m" class="num">–</div><div class="lab">Minutos</div></div>
+          <div class="unit"><div id="s" class="num">–</div><div class="lab">Segundos</div></div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/tu-usuario/coreengine" target="_blank" rel="noopener">Ver repositorio</a>
+          <a class="btn ghost" href="mailto:coreengine.dev@gmail.com">Contacto</a>
+        </div>
+
+        <div class="panel" style="margin-top:16px">
+          <ul class="list">
+            <li><span class="dot"></span> Arquitectura Android moderna. Kotlin y Compose.</li>
+            <li><span class="dot"></span> Loop determinista. Render Canvas y OpenGL.</li>
+            <li><span class="dot"></span> IDE propio con visor de escenas e inspector.</li>
+            <li><span class="dot"></span> Licencia Apache 2.0. Open source profesional.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="logoMark" role="img" aria-label="Marca CoreEngine con engranaje y espiral">
+          <div class="gear">⚙️</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> CoreEngine. Apache 2.0.</div>
+      <div>
+        <a href="https://developer.android.com/topic/architecture?hl=es-419" target="_blank" rel="noopener">Arquitectura Android</a> ·
+        <a href="https://twitter.com" target="_blank" rel="noopener">X</a> ·
+        <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a> ·
+        <a href="/privacy.html">Privacidad</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Cuenta regresiva a 2027-06-03T00:00:00Z
+    const target = new Date('2027-06-03T00:00:00Z').getTime();
+    const el = {d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
+
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+      const s = Math.floor(diff / 1000) % 60;
+      const m = Math.floor(diff / 60000) % 60;
+      const h = Math.floor(diff / 3600000) % 24;
+      const d = Math.floor(diff / 86400000);
+      el.d.textContent = String(d);
+      el.h.textContent = String(h).padStart(2,'0');
+      el.m.textContent = String(m).padStart(2,'0');
+      el.s.textContent = String(s).padStart(2,'0');
+      if (diff === 0) clearInterval(t);
+    }
+    tick();
+    const t = setInterval(tick, 1000);
+  </script>
+  <noscript>
+    <div style="margin-top:12px;color:#ffcccb">Activa JavaScript para ver la cuenta regresiva.</div>
+  </noscript>
+</body>
+</html>
